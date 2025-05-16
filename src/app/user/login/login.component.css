@@ -1,0 +1,77 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 24px;
+    background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+    position: relative;
+    overflow: hidden;
+  }
+  :host::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: url('/assets/starfield.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  /* 2. İçerik katmanı */
+  .astrology-login {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+  }
+  .astrology-login h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #ff6cff;
+    text-shadow: 0 0 8px #ff6cff, 0 0 16px #ffffff;
+  }
+  
+  /* 3. Giriş kartı efekti */
+  .login-card {
+    background: rgba(255,255,255,0.05);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow:
+      0 0 20px rgba(0,255,255,0.7),
+      0 0 30px rgba(255,0,255,0.5);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* 4. Neon form alanları */
+  .mat-form-field.neon-field .mat-form-field-outline {
+    border-color: #0ff !important;
+  }
+  .mat-form-field.neon-field .mat-form-field-label {
+    color: #0ff !important;
+    text-shadow: 0 0 6px #0ff;
+  }
+  .mat-form-field.neon-field .mat-form-field-flex {
+    background: rgba(0,0,0,0.3) !important;
+  }
+  
+  .neon-field{
+    width: 100%;
+  }
+  
+  /* 5. Neon buton */
+  .neon-button {
+    width: 100%;
+    margin-top: 16px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff) !important;
+    color: #fff !important;
+    box-shadow: 0 0 8px #ff00ff, 0 0 12px #00ffff;
+  }
+  
+  /* 6. Hata mesajı */
+  .error {
+    margin-top: 12px;
+    color: #ff4d4f;
+    text-shadow: 0 0 4px #ff4d4f;
+    font-weight: bold;
+  }

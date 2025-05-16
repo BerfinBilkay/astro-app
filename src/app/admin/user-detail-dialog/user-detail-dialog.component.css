@@ -1,0 +1,62 @@
+:host ::ng-deep .mat-dialog-container {
+  background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.7),
+    0 0 30px rgba(255,0,255,0.5);
+}
+
+/* Yıldız deseni için */
+:host ::ng-deep .mat-dialog-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/assets/starfield.png') center/cover no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* 2) Wrapper düzenlemeleri */
+.astrology-dialog {
+  position: relative;
+  z-index: 1;
+  padding: 24px 32px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 3) Başlık neon glow */
+.astrology-dialog h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #ff6cff;
+  text-shadow:
+    0 0 8px #ff6cff,
+    0 0 16px #ffffff;
+}
+
+/* 4) İçerik metni */
+.astrology-dialog mat-dialog-content p {
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-shadow: 0 0 4px rgba(255,255,255,0.1);
+}
+
+/* 5) Neon flat buton */
+.neon-button-flat {
+  color: #00ffff;
+  text-shadow: 0 0 6px #00ffff;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+  transition: all 0.2s ease-in-out;
+}
+.neon-button-flat:hover {
+  background: rgba(0,255,255,0.1);
+  box-shadow:
+    0 0 12px #00ffff,
+    0 0 20px #ffffff;
+}

@@ -1,0 +1,52 @@
+<!-- src/app/user/user-update/user-update.component.html -->
+<div class="register-wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
+    <h2>🔮 Kayıt Ol</h2>
+
+    <label>
+      İsim Soyisim
+      <input formControlName="displayName" placeholder="Adınız Soyadınız" />
+    </label>
+    <div *ngIf="form.get('displayName')?.touched && form.get('displayName')?.invalid" class="error">
+      <small *ngIf="form.get('displayName')?.hasError('required')">Zorunlu alan</small>
+      <small *ngIf="form.get('displayName')?.hasError('minlength')">En az 2 karakter</small>
+    </div>
+
+    <label>
+      E-posta
+      <input formControlName="email" type="email" placeholder="mail@domain.com" />
+    </label>
+    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="error">
+      <small *ngIf="form.get('email')?.hasError('required')">Zorunlu alan</small>
+      <small *ngIf="form.get('email')?.hasError('email')">Geçerli bir e-posta girin</small>
+    </div>
+
+    <label>
+      Şifre
+      <input formControlName="password" type="password" placeholder="En az 6 karakter" />
+    </label>
+    <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error">
+      <small *ngIf="form.get('password')?.hasError('required')">Zorunlu alan</small>
+      <small *ngIf="form.get('password')?.hasError('minlength')">En az 6 karakter</small>
+    </div>
+
+    <label>
+      Doğum Tarihi
+      <input formControlName="birthDate" type="date" />
+    </label>
+
+    <label>
+      Doğum Saati
+      <input formControlName="birthTime" type="time" />
+    </label>
+
+    <label>
+      Doğum Konumu
+      <input formControlName="birthLocation" placeholder="Örn: Istanbul, TR" />
+    </label>
+
+    <button type="submit" [disabled]="loading" class="neon-button">Kayıt Ol</button>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </form>
+</div>

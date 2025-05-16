@@ -1,0 +1,19 @@
+<!-- src/app/shared/astrology-dialog.component.html -->
+<div class="astrology-dialog">
+  <h2 mat-dialog-title>🔮 Kullanıcı Detayları</h2>
+
+  <mat-dialog-content>
+    <p><strong>UID:</strong> {{ user.uid }}</p>
+    <p><strong>İsim:</strong> {{ user.displayName }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Doğum Tarihi:</strong> {{ user.birthDate }}</p>
+    <p><strong>Doğum Saati:</strong> {{ user.birthTime }}</p>
+    <p><strong>Doğum Yeri:</strong> {{ user.birthLocation }}</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="neon-button-flat">
+      Kapat
+    </button>
+  </mat-dialog-actions>
+</div>

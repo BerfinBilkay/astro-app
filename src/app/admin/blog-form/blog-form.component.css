@@ -1,0 +1,106 @@
+/* ──────────────────────────────────────────────────────────── */
+/* 1) Host & arka plan */
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 24px;
+  background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+  position: relative;
+  overflow: hidden;
+}
+:host::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('/assets/starfield.png') center/cover no‐repeat;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 2) İçerik katmanı */
+.astrology-list {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.astrology-list h2.neon-text {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #39ff14;
+  text-shadow:
+    0 0 6px #39ff14,
+    0 0 12px #ffffff;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 3) Cam kart form */
+.list-card.form-card {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 32px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.6),
+    0 0 30px rgba(255,0,255,0.4);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 4) Form alanları */
+.w100 {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 5) Dosya seçme butonu */
+.file-input {
+  margin: 16px 0;
+
+  input[type="file"] {
+    display: none;
+  }
+  label.neon-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ff6cff;
+    text-shadow: 0 0 6px #ff6cff;
+    transition: transform .2s;
+    &:hover { transform: scale(1.1); }
+  }
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 6) Önizleme görseli */
+.prev-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto;
+  border: 2px solid #39ff14;
+  border-radius: 4px;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 7) Kaydet/Güncelle butonu */
+button.neon-button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 6px;
+  color: #00ffff;
+  text-shadow: 0 0 6px #00ffff;
+  transition: transform .2s;
+  &:hover { transform: scale(1.05); }
+}

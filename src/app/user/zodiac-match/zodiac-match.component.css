@@ -1,0 +1,143 @@
+/* match-popup.component.css */
+body{
+  background: black;
+}
+/* zodiac-match.component.css */
+:host {
+  display: flex;
+  justify-content: center; /* yatay ortala */
+  align-items: center;     /* dikey ortala */
+  height: 100%;            /* container’ın tamamı kadar yükseklik */
+  width: 100%;
+}
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column; /* isterseniz dikey yığın */
+  padding: 0;
+  background-color: black;
+}
+/* Container */
+.container {
+  width: 100%;
+  background: black;
+  position: relative;
+}
+
+/* Section: Burç seçimi */
+.selectSign {
+  text-align: center;
+  height: 150px;
+  width: 100%;
+}
+
+.select {
+  font-family: OpenSans, sans-serif;
+  text-align: center;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown styling */
+.select select {
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  margin: 0;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  height: 50px;
+  width: 120px;
+  border: 2px solid #caa167;
+  border-radius: 5px;
+  background: white;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+/* Arrow icon inside dropdown */
+.select .arrow {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  font-size: 25px;
+  color: #caa167;
+  pointer-events: none;
+}
+
+/* Ampersand between selects */
+.ampersand {
+  font-family: 'Abril Fatface', serif;
+  font-size: 60px;
+  color: #caa167;
+  position: relative;
+  top: 15px;
+  margin: 10px 20px;
+  left: 4px;
+}
+
+/* Match button */
+.buttonMain button {
+  font-size: 22px;
+  letter-spacing: 0.5rem;
+  font-weight: 300;
+  font-family: OpenSans, sans-serif;
+  color: white;
+  width: 335px;
+  border: 2px solid #caa167;
+  background-color: black;
+  margin-top: 30px;
+  margin-left: 10px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.buttonMain button:hover {
+  background: #caa167;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  border-color: #caa167;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+}
+
+/* Section: Eşleşme sonuçları */
+.matchResults {
+  color: white;
+  background-color: black;
+  /* Eğer padding/margin gerekirse buraya ekleyebilirsiniz */
+}
+
+/* Gizli elementler */
+.hidden {
+  display: none !important;
+}
+
+/* Varsayılan mesaj paragrafı */
+#defaultMessage p {
+  margin-bottom: 20px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  font-weight: lighter;
+  word-spacing: 2px;
+  text-align: center;
+}
+
+/* Sonuç metinleri */
+.matchResults p {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  font-weight: lighter;
+  word-spacing: 2px;
+  text-align: center;
+}

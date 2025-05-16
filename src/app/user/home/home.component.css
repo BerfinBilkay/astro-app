@@ -1,0 +1,373 @@
+/* ──────────────────────────────────────────────────────────── */
+/* 1) html/body – Scroll için statik pozisyon, overflow-auto */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* yükseklik içeriğe göre uzasın */
+  min-height: 100%;
+  /* içerik uzunluğuna göre scroll bars */
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  position: static; /* FIXED kaldırıldı */
+}
+
+/* 2) Arka plan canvas’ı sabit kalsın */
+.background-canvas {
+  position: fixed;  /* viewport’a sabitlendi */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;       /* içerik altında kalacak */
+  background: transparent;
+}
+
+/* 3) İçerik sarmalayıcı – z-index ile canvas’ın önünde */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 4) Diğer mevcut stiller – sadece .content-wrapper içine alındı */
+/* Gizli GUI panellerini kapat */
+.dg, .lil-gui { display: none !important; }
+
+/* Gezegen resmi (opsiyonel) */
+.planet {
+  width: 15vw;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* UI katmanları */
+.welcome {
+  margin-top: 4rem;
+  text-align: center;
+}
+.welcome h1 {
+  font-size: 2.5rem;
+  color: #aa77ff;
+  text-shadow: 0 0 10px #aa77ff, 0 0 20px #aa77ff;
+}
+.welcome button {
+  padding: .75rem 1.5rem;
+  margin: 0 10px 10px;
+  color: #aa77ff;
+  background: transparent;
+  border: 2px solid #aa77ff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #aa77ff;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.welcome button:hover {
+  background: rgba(0,255,255,0.1);
+  box-shadow: 0 0 20px #aa77ff;
+}
+
+/* Burç bölümü */
+.horoscope {
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  width: calc(100% - 2rem);
+  max-width: 600px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #aa77ff;
+  border-radius: 12px;
+}
+.horoscope h2 {
+  font-size: 1.75rem;
+  margin-bottom: .5rem;
+  color: #aa77ff;
+  text-shadow: 0 0 8px #aa77ff;
+}
+.horoscope p, .horoscope em {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+.horoscope button {
+  padding: .5rem 1rem;
+  margin: 5px;
+  color: #aa77ff;
+  background: transparent;
+  border: 1px solid #aa77ff;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #aa77ff;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.horoscope button:hover {
+  background: rgba(0,255,255,0.1);
+  box-shadow: 0 0 15px #aa77ff;
+}
+
+/* Blogs Başlığı */
+.blogs {
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  width: calc(100% - 2rem);
+  max-width: 600px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #aa77ff;
+  border-radius: 12px;
+}
+.blogs h2 {
+  font-size: 1.75rem;
+  margin-bottom: .5rem;
+  color: #aa77ff;
+  text-shadow: 0 0 8px #aa77ff;
+}
+
+/* Logged-out ekranı */
+.logged-out-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+.astrology-loggedout {
+  position: relative;
+  max-width: 480px;
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.7),
+    0 0 30px rgba(255,0,255,0.5);
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+.astrology-loggedout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/assets/starfield.png') center/cover no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.astrology-loggedout h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #ff6cff;
+  text-shadow:
+    0 0 8px #ff6cff,
+    0 0 16px #ffffff;
+}
+.astrology-loggedout p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  text-shadow: 0 0 4px rgba(255,255,255,0.2);
+}
+.action-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.neon-link {
+  padding: 10px 24px;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #00ffff;
+  text-shadow: 0 0 6px #00ffff;
+  transition: all 0.2s ease-in-out;
+}
+.neon-link:hover {
+  background: rgba(0,255,255,0.1);
+  box-shadow:
+    0 0 12px #00ffff,
+    0 0 20px #ffffff;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* Blog Kartları Grid & Stil */
+/* Paket sarmalayıcı */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Kart tasarımı */
+.astro-card {
+  display: flex;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,255,255,0.4);
+  border-radius: 12px;
+  box-shadow:
+    0 0 10px #aa77ff,
+    0 0 15px rgba(255,0,255,0.3);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.astro-card:hover {
+  transform: translateX(4px);
+  box-shadow:
+    0 0 20px #aa77ff,
+    0 0 25px rgba(255,0,255,0.5);
+}
+
+/* Görsel (sabit boyut) */
+.card-img {
+  flex: 0 0 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* İçerik bölümü */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 12px 16px;
+}
+
+/* Başlık neon */
+.card-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #aa77ff;
+  /* text-shadow:
+    0 0 4px #aa77ff,
+    0 0 8px #ffffff; */
+}
+
+/* Snippet: 3 satır} */
+.card-snippet {
+  margin: 0 0 12px;
+  font-size: 0.95rem !important;
+  line-height: 1.3 !important;
+
+  /* 1. width ≃ 30 characters */
+  max-width: 30ch;
+
+  /* 2. multiline ellipsis */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;  /* <-- max 2 lines */
+  overflow: hidden;
+
+  /* 3. make sure text wraps normally */
+  white-space: normal;
+
+  /* optional—some browsers use this for ellipsis */
+  text-overflow: ellipsis;
+}
+
+/* Footer: tarih ve buton sağa hizalı */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tarih */
+.card-date {
+  font-size: 0.8rem;
+  color: #ccc;
+  text-shadow: 0 0 3px #aa77ff;
+}
+
+/* Devam butonu */
+.card-button {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  color: #aa77ff;
+  text-shadow: 0 0 4px #aa77ff;
+  transition: background 0.2s, transform 0.2s;
+  background-color: transparent;
+}
+.card-button:hover {
+  background: rgba(0,255,255,0.1);
+  transform: scale(1.1);
+}
+
+/* NUMEROLOGY */
+/* Host & Background */
+.numerology-astrology-list {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.numerology-astrology-list .numerology-neon-text {
+    color: #00ffff;
+    text-shadow: 0 0 6px #00ffff, 0 0 12px #ffffff;
+}
+
+/* Form Kartı */
+.numerology-list-card.numerology-form-card {
+    max-width: 400px;
+    margin: 0 auto 24px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+.numerology-w100 {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.numerology-neon-button {
+    width: 100%;
+    color: white !important;
+    text-shadow: 0 0 6px white;
+}
+
+/* Sonuç Kartları Grid */
+.numerology-cards.numerology-results {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Astro-Card Stil */
+.numerology-astro-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    text-align: center;
+    padding: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.4);
+    transition: transform .2s;
+}
+
+.numerology-astro-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Kart Başlık ve İçerik */
+.numerology-card-title {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: #aa77ff;
+    text-shadow: 0 0 4px #aa77ff, 0 0 8px #aa77ff;
+}
+
+.numerology-card-snippet {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ddd;
+}

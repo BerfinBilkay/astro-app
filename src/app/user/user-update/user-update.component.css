@@ -1,0 +1,99 @@
+html, body {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+.dark-backdrop {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+}
+.background-canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.dg, .lil-gui {
+  display: none !important;
+}
+
+/* Ortadaki gezegen */
+.planet {
+  width: 15vw;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lil-gui root allow-touch-styles autoPlace closed{
+  display: none !important;
+}
+
+.profile-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 480px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.9); 
+  padding: 1.5rem;
+  border: 1px solid #aa77ff;
+  border-radius: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #aa77ff;
+  text-align: center;
+  text-shadow: 0 0 10px #aa77ff, 0 0 20px #aa77ff;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.cancel-button {
+  padding: .75rem 1.5rem;
+  font-size: 1rem;
+  margin: 10px;
+  color: red !important;
+  font-weight: bold;
+  background: black !important;
+  border: 2px solid red;
+  border-radius: 8px;
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
+  transition: all .3s ease;
+  flex: 0 0 36%; 
+}
+.save-button {
+  padding: .75rem 1.5rem;
+  font-size: 1rem;
+  margin: 10px;
+  color: blue !important;
+  font-weight: bold;
+  background: black !important;
+  border: 2px solid blue;
+  border-radius: 8px;
+  box-shadow: 0 0 10px blue;
+  cursor: pointer;
+  transition: all .3s ease;
+  flex: 0 0 56%;  
+}

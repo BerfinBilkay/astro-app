@@ -1,0 +1,136 @@
+<canvas #canvas class="background-canvas" id="canvas"></canvas>
+<div #mainContent class="content-wrapper">
+  <ng-container *ngIf="user$ | async as user; else loggedOut">
+    <!-- Kullanıcı Karşılama -->
+    <div class="welcome">
+      <h1>Hoş geldin, {{ user.displayName ? (user.displayName | uppercase) : user.email }}!</h1>
+      <button (click)="logout()">Çıkış Yap</button>
+      <button (click)="userUpdate()">Profili Güncelle</button>
+    </div>
+    <section class="horoscope">
+      <h2>Günlük Burç Yorumun</h2>
+      <p *ngIf="horoscope$ | async as text; else loading">{{ text }}</p>
+      <ng-template #loading><em>Yükleniyor…</em></ng-template>
+    </section>
+    <section class="horoscope">
+      <button (click)="showBirthChart()">
+        Doğum Haritamı Görüntüle
+      </button>
+      <button (click)="showStartMap()">
+        Yıldız Haritamı Görüntüle
+      </button>
+      <button (click)="showZodiacMatch()">
+        Aşk Uyumun
+      </button>
+      <button (click)="showNumerology()">
+        Numaroloji
+      </button>
+    </section>
+    <section class="blogs">
+      <div class="cards">
+        <div *ngFor="let b of blogs$ | async" class="astro-card">
+          <img class="card-img" [src]="b.imageUrl || 'assets/default.jpg'" alt="{{ b.title }}" />
+
+          <div class="card-body">
+            <h3 class="card-title">{{ b.title }}</h3>
+            <p class="card-snippet">{{ b.content | slice:0:80 }}...</p>
+            <div class="card-footer">
+              <time class="card-date">{{ b.createdAt | date:'shortDate' }}</time>
+              <button color="accent" class="card-button" [routerLink]="['/blogs', b.id]">
+                Devamını Gör
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <div class="logged-out-wrapper">
+      <div class="astrology-loggedout">
+        <h2>🔮 Giriş Gerekiyor</h2>
+        <p>Devam etmek için lütfen giriş yap veya kayıt ol.</p>
+        <ul class="action-list">
+          <li><a routerLink="/login" class="neon-link">Giriş Yap</a></li>
+          <li><a routerLink="/register" class="neon-link">Kayıt Ol</a></li>
+        </ul>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<div #numerologyContent class="content-wrapper" style="display: none;">
+  <div class="welcome">
+    <h1>Numeroloji Analizi</h1>
+    <button (click)="ShowMainContent()"><</button>
+  </div>
+  <br>
+  <section class="horoscope">
+    <p class="numerology-card-snippet">Bir kişinin hayatı isminin yazılışından tahmin edilebilir. Mantra Shastra'dan,
+      alfabenin titreşim frekansını kullanır.</p>
+    <br>
+    <h3 class="numerology-card-title" style="text-align: start;">🤔 Numeroloji Nedir?</h3>
+    <p class="numerology-card-snippet" style="text-align: start;">Özetle, her erkek veya kadın bir Sayı ile temsil
+      edilir (çünkü belirli bir gün,
+      ay ve yılda doğmuştur) ve ayrıca isimlerine ait harflerle tanımlanır.
+
+      Bu sastralara göre insan bir Yantra'dır ve ismi bir Mantra'dır. Olumlu sonuçlar ancak ikisi de birbirleriyle aynı
+      fikirdeyse elde edilebilir ve herhangi bir anlaşmazlık onlara zarar verecektir. Bu, bu bilimin temel temelidir.
+    </p>
+  </section>
+  <section class="horoscope">
+    <form [formGroup]="f" (ngSubmit)="calculate()">
+
+      <mat-form-field appearance="fill" class="numerology-w100">
+        <mat-label>Ad Soyad</mat-label>
+        <input matInput formControlName="fullName" placeholder="TAM ADINIZ">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="numerology-w100">
+        <mat-label>Doğum Tarihi</mat-label>
+        <input matInput formControlName="birthDate" type="date">
+      </mat-form-field>
+
+      <button mat-raised-button style="background-color: transparent;" class="numerology-neon-button"
+        [disabled]="f.invalid">
+        Hesapla
+      </button>
+    </form>
+  </section>
+
+  <div *ngIf="result" class="numerology-cards numerology-results">
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Yaşam Yolu: {{ result.lifePath }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.lifePath }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">İfade: {{ result.expression }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.expression }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Ruh Arzusu: {{ result.soulUrge }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.soulUrge }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Kişilik: {{ result.personality }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.personality }}</p>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+<div #birthChartContent class="content-wrapper" style="display: none;">
+  <div class="welcome">
+    <h1>Doğum Haritası</h1>
+    <button (click)="ShowMainContent()"><</button>
+  </div>
+  <section class="horoscope">
+    <ng-container *ngIf="loading; else showChart">
+      Yükleniyor…
+    </ng-container>
+
+    <ng-template #showChart>
+      <div [innerHTML]="birthChartHtml"></div>
+    </ng-template>
+  </section>
+</div>

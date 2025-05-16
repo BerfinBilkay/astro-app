@@ -1,0 +1,53 @@
+<!-- src/app/components/blog-form/blog-form.component.html -->
+<div class="astrology-list">
+  <h2 class="neon-text">
+    {{ edit ? '✏️ Blog Düzenle' : '🆕 Yeni Blog' }}
+  </h2>
+
+  <div class="list-card form-card">
+    <form [formGroup]="f" (ngSubmit)="save()">
+
+      <!-- Burç Seçimi -->
+      <mat-form-field appearance="fill" class="w100">
+        <mat-label>Burç</mat-label>
+        <mat-select formControlName="zodiacSign">
+          <mat-option *ngFor="let sign of zodiacSigns" [value]="sign">
+            {{ sign }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.get('zodiacSign')?.hasError('required')">
+          Burç seçimi zorunlu
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Başlık -->
+      <mat-form-field appearance="fill" class="w100">
+        <mat-label>Başlık</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+
+      <!-- İçerik -->
+      <mat-form-field appearance="fill" class="w100">
+        <mat-label>İçerik</mat-label>
+        <textarea matInput formControlName="content" rows="6"></textarea>
+      </mat-form-field>
+
+      <!-- Görsel -->
+      <div class="file-input">
+        <input type="file" id="file" (change)="fc($event)" accept="image/*">
+        <label for="file" class="neon-button">📷 Görsel Seç</label>
+      </div>
+      <img *ngIf="prv" [src]="prv" class="prev-img">
+
+      <!-- Kaydet/Güncelle -->
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="f.invalid"
+        class="neon-button"
+      >
+        {{ edit ? '🔄 Güncelle' : '💾 Kaydet' }}
+      </button>
+    </form>
+  </div>
+</div>

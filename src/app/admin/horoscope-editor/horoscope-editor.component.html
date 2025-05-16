@@ -1,0 +1,23 @@
+<div class="astrology-editor">
+  <h2>🌟 Günlük Burç Düzenleyici</h2>
+
+  <div class="astrology-card">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <mat-form-field appearance="fill" class="neon-field">
+        <mat-label>Burç</mat-label>
+        <mat-select formControlName="sign">
+          <mat-option *ngFor="let s of signs" [value]="s">{{ s }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="neon-field wide">
+        <mat-label>Yorum</mat-label>
+        <textarea matInput rows="6" formControlName="text"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="neon-button">
+        Kaydet
+      </button>
+    </form>
+  </div>
+</div>

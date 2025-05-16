@@ -1,0 +1,74 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 24px;
+    background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+    position: relative;
+    overflow: hidden;
+  }
+  :host::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('/assets/starfield.png') center/cover no-repeat;
+    opacity: 0.08;
+    z-index: 0;
+  }
+  
+  /* 2) İçerik katmanı */
+  .astrology-list {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .astrology-list h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #00ffff;
+    text-shadow:
+      0 0 6px #00ffff,
+      0 0 12px #ffffff;
+  }
+  
+  /* 3) Cam kart efekti */
+  .list-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    box-shadow:
+      0 0 20px rgba(0,255,255,0.6),
+      0 0 30px rgba(255,0,255,0.4);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* 4) Neon tablo stili */
+  .neon-table {
+    width: 100%;
+    color: #fff;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* satırlar arasında boşluk */
+  }
+  .neon-table th.mat-header-cell {
+    background: rgba(0,0,0,0.5);
+    color: #0ff;
+    font-weight: bold;
+    text-shadow: 0 0 6px #0ff;
+  }
+  .neon-table td.mat-cell {
+    background: rgba(0,0,0,0.3);
+    color: #ddd;
+  }
+  .neon-table tr.mat-row:hover td {
+    background: rgba(0,255,255,0.1);
+  }
+  
+  /* 5) Neon buton stili */
+  .neon-table button.mat-button {
+    color: #ff6cff;
+    text-shadow: 0 0 6px #ff6cff;
+  }

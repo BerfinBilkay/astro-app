@@ -1,0 +1,86 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 24px;
+  background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+:host::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* assets klasörünüze yıldız dokulu bir PNG ekleyin: starfield.png */
+  background: url('/assets/starfield.png') center center / cover no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* 2. İçerik katmanı */
+.astrology-editor {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.astrology-editor h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff6cff;
+  text-shadow:
+    0 0 8px #ff6cff,
+    0 0 16px #ffffff;
+}
+
+/* 3. Kayıt kartı efekti: cam efekti + neon gölgeler */
+.astrology-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.7),
+    0 0 30px rgba(255, 0, 255, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* 4. Neon form alanları */
+.mat-form-field.neon-field .mat-form-field-outline {
+  border-color: #0ff;
+}
+
+.mat-form-field.neon-field .mat-form-field-label {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff;
+}
+
+.mat-form-field.neon-field .mat-form-field-flex {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.neon-field {
+  width: 100%;
+}
+
+/* 5. Buton: çift renkli neon degrade + glow */
+.neon-button {
+  display: block;
+  width: 100%;
+  margin: 20px auto 0;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  color: #fff;
+  box-shadow:
+    0 0 8px #ff00ff,
+    0 0 12px #00ffff;
+}
+
+/* 6. Geniş textarea */
+.wide {
+  width: 100%;
+}

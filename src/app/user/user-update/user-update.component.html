@@ -1,0 +1,38 @@
+<canvas #canvas class="background-canvas" id="canvas"></canvas>
+
+<ng-container class="horoscope" style="background-color: black !important;">
+  <form [formGroup]="form" (ngSubmit)="save()" class="profile-form">
+    <h1>Profil Güncelle</h1>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>İsim</mat-label>
+      <input matInput formControlName="displayName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Doğum Tarihi</mat-label>
+      <input matInput type="date" formControlName="birthDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Doğum Saati</mat-label>
+      <input matInput type="time" formControlName="birthTime" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Doğum Yeri</mat-label>
+      <input matInput formControlName="birthLocation" />
+    </mat-form-field>
+
+    <div class="button-row">
+      <!-- İptal butonu: type="button" olmalı, form göndermez -->
+      <button mat-stroked-button type="button" class="cancel-button" (click)="cancel()">
+        İptal
+      </button>
+
+      <!-- Güncelle butonu -->
+      <button mat-raised-button class="save-button" type="submit">
+        Güncelle
+      </button>
+    </div>
+  </form>
+</ng-container>

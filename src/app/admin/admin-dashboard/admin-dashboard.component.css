@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 24px;
+  background: radial-gradient(circle at top center, #1a1a2e, #0d0d1a);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+:host::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('/assets/starfield.png') center center / cover no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* 2) İçerik katmanı */
+.astrology-dashboard {
+  position: relative;
+  z-index: 1;
+}
+
+/* 3) Tab grubu kart efekti */
+.astrology-dashboard mat-tab-group {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.7),
+    0 0 30px rgba(255,0,255,0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* 4) Neon tab başlıkları */
+:host ::ng-deep .mat-tab-label {
+  font-weight: 600;
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff;
+}
+:host ::ng-deep .mat-tab-label.mat-tab-label-active {
+  color: #ff6cff;
+  text-shadow:
+    0 0 8px #ff6cff,
+    0 0 12px #ffffff;
+}
+
+/* 5) Tab içeriği etrafına padding */
+:host ::ng-deep .mat-tab-body-wrapper {
+  padding: 16px;
+}

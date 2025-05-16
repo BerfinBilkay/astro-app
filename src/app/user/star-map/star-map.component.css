@@ -1,0 +1,18 @@
+.star-map-panel .mat-dialog-container {
+  padding: 0 !important;
+  overflow: hidden;
+  width: 380; 
+  height: 380;
+  background: rgba(0, 0, 0, 0.9);
+}
+canvas {
+  width: 380 !important;
+  height: 380 !important;
+  max-width: 380 !important;
+  max-height: 380 !important;
+  display: block;
+  margin: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+}

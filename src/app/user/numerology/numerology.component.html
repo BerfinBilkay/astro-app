@@ -1,0 +1,42 @@
+<div class="numerology-astrology-list">
+    <h2 class="numerology-neon-text">🔢 Numeroloji Analizi</h2>
+  </div>
+  
+  <div class="numerology-list-card numerology-form-card">
+    <form [formGroup]="f" (ngSubmit)="calculate()">
+  
+      <mat-form-field appearance="fill" class="numerology-w100">
+        <mat-label>Ad Soyad</mat-label>
+        <input matInput formControlName="fullName" placeholder="TAM ADINIZ">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="numerology-w100">
+        <mat-label>Doğum Tarihi</mat-label>
+        <input matInput formControlName="birthDate" type="date">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" class="numerology-neon-button" [disabled]="f.invalid">
+        Hesapla
+      </button>
+    </form>
+  </div>
+  
+  <div *ngIf="result" class="numerology-cards numerology-results">
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Yaşam Yolu: {{ result.lifePath }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.lifePath }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">İfade: {{ result.expression }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.expression }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Ruh Arzusu: {{ result.soulUrge }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.soulUrge }}</p>
+    </div>
+    <div class="numerology-astro-card">
+      <h3 class="numerology-card-title">Kişilik: {{ result.personality }}</h3>
+      <p class="numerology-card-snippet">{{ result.interpretation.personality }}</p>
+    </div>
+  </div>
+  

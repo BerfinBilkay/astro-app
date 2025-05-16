@@ -1,0 +1,25 @@
+<!-- src/app/admin/admin-login.component.html -->
+<div class="astrology-login">
+  <h2>🔐 Yönetici Giriş</h2>
+  <div class="login-card">
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <mat-form-field appearance="fill" class="neon-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="neon-field">
+        <mat-label>Şifre</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="neon-button">
+        Giriş Yap
+      </button>
+
+      <div *ngIf="error" class="error">
+        {{ error }}
+      </div>
+    </form>
+  </div>
+</div>

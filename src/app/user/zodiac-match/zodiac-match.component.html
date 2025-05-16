@@ -1,0 +1,552 @@
+<div class="center-wrapper">
+  <section class="selectSign">
+    <div class="container">
+      <div class="select text-center">
+        <span class="arrow"><i class="fa fa-angle-down"></i></span>
+        <select id="sign1" [(ngModel)]="sign1" disabled>
+          <option value="koç">Koç</option>
+          <option value="boğa">Boğa</option>
+          <option value="ikizler">İkizler</option>
+          <option value="yengeç">Yengeç</option>
+          <option value="aslan">Aslan</option>
+          <option value="başak">Başak</option>
+          <option value="terazi">Terazi</option>
+          <option value="akrep">Akrep</option>
+          <option value="yay">Yay</option>
+          <option value="oğlak">Oğlak</option>
+          <option value="kova">Kova</option>
+          <option value="balık">Balık</option>
+        </select>
+      </div>
+
+      <span class="ampersand">&</span>
+
+      <div class="select text-center">
+        <span class="arrow"><i class="fa fa-angle-down"></i></span>
+        <select id="sign2" [(ngModel)]="sign2">
+          <option value="koç">Koç</option>
+          <option value="boğa">Boğa</option>
+          <option value="ikizler">İkizler</option>
+          <option value="yengeç">Yengeç</option>
+          <option value="aslan">Aslan</option>
+          <option value="başak">Başak</option>
+          <option value="terazi">Terazi</option>
+          <option value="akrep">Akrep</option>
+          <option value="yay">Yay</option>
+          <option value="oğlak">Oğlak</option>
+          <option value="kova">Kova</option>
+          <option value="balık">Balık</option>
+        </select>
+      </div>
+
+      <div class="buttonMain">
+        <button id="matchMe" (click)="match()">Eşleştir</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="matchResults">
+    <div class="container">
+      <section>
+        <div id="defaultMessage">
+          <p>Hayalinizdeki <i class="fa fa-male"></i> veya <i class="fa fa-female"></i> ile tanıştınız mı? Yıldızların
+            aşk burcu uyumunu merak ediyorsanız burçları seçin ve mükemmel eşinizi keşfedin.</p>
+        </div>
+
+        <!-- Koç Kombinasyonları -->
+        <div id="koç_koç" class="hidden">
+          <p>İki Koç bir araya geldiğinde kıvılcımlar kaçınılmazdır. Rekabet dolu bu ilişki hem heyecanlı hem de
+            zorludur. Bağımsızlıklarına saygı gösterirler ama egolarını törpülemezlerse çatışma kaçınılmazdır.</p>
+        </div>
+        <div id="koç_boğa" class="hidden">
+          <p>Koç’un tutkusuyla Boğa’nın güveni dengelenir. Koç hızlı harekete geçmek isterken Boğa romantizmi ve yavaş
+            ilerlemeyi tercih eder. Birbirlerini tamamlayarak uyumlu bir ilişki kurarlar.</p>
+        </div>
+        <div id="koç_ikizler" class="hidden">
+          <p>Macera tutkusu ile entelektüel merak bir arada akar. İkizler’in iletişimi Koç’un enerjisini besler,
+            tartışmalar ilişkiye renk katar.</p>
+        </div>
+        <div id="koç_yengeç" class="hidden">
+          <p>Koç’un cesareti ve Yengeç’in koruyucu duygusallığı güçlü bir bağ oluşturur. Duygusal dalgalanmalara dikkat
+            etmelidirler.</p>
+        </div>
+        <div id="koç_aslan" class="hidden">
+          <p>İki Aslan’ın alevli enerjisi kıskançlık ve rekabeti tetikler. Karşılıklı hayranlık denge kazandırır.</p>
+        </div>
+        <div id="koç_başak" class="hidden">
+          <p>Koç’un spontane doğası Başak’ın detaycılığıyla çatışabilir. Karşılıklı sabır ve anlayış ilişkilerini
+            güçlendirir.</p>
+        </div>
+        <div id="koç_terazi" class="hidden">
+          <p>Koç’un atılganlığı, Terazi’nin denge arayışıyla uyum bulur. Farklılıkları anlayınca mükemmel bir denge
+            kurarlar.</p>
+        </div>
+        <div id="koç_akrep" class="hidden">
+          <p>Koç ve Akrep aynı tutku kaynağını paylaşır. Kıskançlık ve güç mücadelelerine rağmen yoğun bir kimya
+            yakalarlar.</p>
+        </div>
+        <div id="koç_yay" class="hidden">
+          <p>Koç ve Yay keşfetmeyi sever. Maceradan maceraya koşan, özgürlüğüne düşkün tutkulu bir ikilidir.</p>
+        </div>
+        <div id="koç_oğlak" class="hidden">
+          <p>Koç’un enerjisi ve Oğlak’ın disiplini çatışsa da kariyer ve macera hedeflerinde birbirlerini tamamlarlar.
+          </p>
+        </div>
+        <div id="koç_kova" class="hidden">
+          <p>Koç’un cesareti ve Kova’nın yenilikçiliği yaratıcı bir uyum sunar. Bağımsızlıklarına saygı duyduklarında
+            ilişkileri güçlenir.</p>
+        </div>
+        <div id="koç_balık" class="hidden">
+          <p>Koç’un tutkulu liderliği Balık’ın sezgisel şefkatini dengeler. Duygusal anlayış ve eylem birlikteliği
+            yakalarlar.</p>
+        </div>
+
+        <!-- Boğa Kombinasyonları -->
+        <div id="boğa_koç" class="hidden">
+          <p>Boğa’nın sabırlı ve kararlı doğası, Koç’un enerjik ve girişimci ruhuyla dinamik bir çekim oluşturur. Koç,
+            Boğa’yı harekete geçirirken, Boğa da Koç’un tutkusunu istikrarla dengeler.</p>
+        </div>
+        <div id="boğa_boğa" class="hidden">
+          <p>İki Boğa’nın ilişkisi güven ve duyusallık üzerinde yükselir. Sadakat ve konfor ön plandadır, sabır
+            gerektirir.</p>
+        </div>
+        <div id="boğa_ikizler" class="hidden">
+          <p>Boğa’nın kararlılığı İkizler’in ruhsal dinamizmini dengeler. İkizler’e sabır, Boğa’ya esneklik öğretir.</p>
+        </div>
+        <div id="boğa_yengeç" class="hidden">
+          <p>Boğa’nın duyusal doğası, Yengeç’in şefkatiyle birleşir. Ev ve aile hayatında uyumlu bir birliktelik
+            yaşarlar.</p>
+        </div>
+        <div id="boğa_aslan" class="hidden">
+          <p>Boğa’nın sadakati ve Aslan’ın gösterişi cazip bir denge sağlar. Birbirlerini hayranlıkla okşarlar ancak
+            inatçılık soruna dönüşebilir.</p>
+        </div>
+        <div id="boğa_başak" class="hidden">
+          <p>Her iki Toprak burcu da pratik ve verimlidir. Birlikte düzenli, kararlı bir ekip oluştururlar.</p>
+        </div>
+        <div id="boğa_terazi" class="hidden">
+          <p>Boğa’nın duyusallığı, Terazi’nin estetik anlayışıyla uyum içinde akar. Karşılıklı saygı ve zarafet
+            hakimdir.</p>
+        </div>
+        <div id="boğa_akrep" class="hidden">
+          <p>Boğa’nın sakin kararlılığı ve Akrep’in tutkulu derinliği güçlü bir manyetik çekim yaratır.</p>
+        </div>
+        <div id="boğa_yay" class="hidden">
+          <p>Boğa’nın güven arayışı ve Yay’ın özgür ruhu bazen çatışsa da birbirlerine yeni bakış açıları katarlar.</p>
+        </div>
+        <div id="boğa_oğlak" class="hidden">
+          <p>Her iki Oğlak ve Boğa da hedef odaklıdır. İstikrar ve disiplinle maddi başarıya odaklanırlar.</p>
+        </div>
+        <div id="boğa_kova" class="hidden">
+          <p>Boğa’nın pratikliği ve Kova’nın yenilikçiliği arasında öğrenilecek çok şey vardır. Dengeli işbirliği gerek.
+          </p>
+        </div>
+        <div id="boğa_balık" class="hidden">
+          <p>Boğa’nın somutiyet ihtiyacı ve Balık’ın hayalperestliği yumuşak bir denge oluşturur. Birbirlerini
+            tamamlarlar.</p>
+        </div>
+
+
+        <!-- İkizler Kombinasyonları -->
+        <div id="ikizler_koç" class="hidden">
+          <p>İkizler’in meraklı ve hızlı düşünce dünyası, Koç’un cesur ve girişimci ruhuyla coşkulu bir birliktelik
+            yaratır. Ortak fikirlerde heyecan yüksektir; ancak sabırsızlık ve ani tepkiler dengeyi zaman zaman
+            zorlayabilir.</p>
+        </div>
+        <div id="ikizler_boğa" class="hidden">
+          <p>İkizler’in değişken enerjisi, Boğa’nın istikrarlı ve sabırlı yapısıyla bir denge arar. İkizler, Boğa’ya
+            esneklik öğretirken; Boğa da İkizler’e sabırlı kalmayı ve derinleşmeyi gösterir.</p>
+        </div>
+        <div id="ikizler_ikizler" class="hidden">
+          <p>İki İkizler enerjik ve esprilidir. Zihinsel uyumları ilişkiyi canlı tutar, dürtüsellik zaman zaman sorun
+            yaratır.</p>
+        </div>
+        <div id="ikizler_yengeç" class="hidden">
+          <p>İkizler’in iletişimi, Yengeç’in duygusallığını harekete geçirir. Duygusal güven ve zihinsel uyum önemlidir.
+          </p>
+        </div>
+        <div id="ikizler_aslan" class="hidden">
+          <p>Zekâ dolu sohbetler Aslan’ın yaratıcılığı ile birleşir. Tartışmada dengeyi korumalıdırlar.</p>
+        </div>
+        <div id="ikizler_başak" class="hidden">
+          <p>İkizler’in çok yönlülüğü, Başak’ın düzen gereksinimiyle dengelenir. Karşılıklı anlayışla uyum yakalanır.
+          </p>
+        </div>
+        <div id="ikizler_terazi" class="hidden">
+          <p>İletişimin ve estetiğin birleşimi; hem zihin hem de kalp tatmin olur.</p>
+        </div>
+        <div id="ikizler_akrep" class="hidden">
+          <p>Zihin-cevap Akrep’in duygusal derinliğiyle kesişir. Gizem ve sohbet uyumu oluşturur.</p>
+        </div>
+        <div id="ikizler_yay" class="hidden">
+          <p>Keşif arayışı İkizler’in merakıyla Yay’ın felsefesi birleşir. Macera ve bilgi tutkusunu paylaşırlar.</p>
+        </div>
+        <div id="ikizler_oğlak" class="hidden">
+          <p>Zihinsel hız ve Oğlak’ın istikrarı zıtlaşır. Dengeli iletişim ve esneklik gerektirir.</p>
+        </div>
+        <div id="ikizler_kova" class="hidden">
+          <p>İkizler’in fikirleri, Kova’nın ilerici vizyonuyla birleşir. Yenilik ve özgürlük yakıtlarıdır.</p>
+        </div>
+        <div id="ikizler_balık" class="hidden">
+          <p>İkizler’in sözcük oyunu, Balık’ın sezgisel empatisiyle hoş bir uyum yakalar.</p>
+        </div>
+
+
+        <!-- Yengeç Kombinasyonları -->
+        <div id="yengeç_koç" class="hidden">
+          <p>Yengeç’in derin duyguları, Koç’un cesur enerjisiyle canlanır. Cesaret ve şefkat karşılıklı güç verir.</p>
+        </div>
+        <div id="yengeç_boğa" class="hidden">
+          <p>Yengeç’in şefkati, Boğa’nın sadakatiyle konforlu bir birliktelik oluşturur. Ev ve duygusal güven ön
+            plandadır.</p>
+        </div>
+        <div id="yengeç_ikizler" class="hidden">
+          <p>Yengeç’in duygusal derinliği, İkizler’in meraklı iletişimiyle canlanır. Şefkat ve zeka uyumlu bir
+            birliktelik sunar.</p>
+        </div>
+        <div id="yengeç_yengeç" class="hidden">
+          <p>İki Yengeç derin duygusal bağ kurar. Ev ve aile hayatı ön plandadır, duygusal iniş-çıkışlara dikkat
+            edilmeli.</p>
+        </div>
+        <div id="yengeç_aslan" class="hidden">
+          <p>Yengeç’in koruyuculuğu, Aslan’ın liderliğiyle dengelenir. Fedakârlık ve sevgi paylaşımı güçlüdür.</p>
+        </div>
+        <div id="yengeç_başak" class="hidden">
+          <p>Yengeç’in şefkati ve Başak’ın titizliği uyumlu bir ekip oluşturur. Ortak amaçlar peşinde kararlı
+            ilerlerler.</p>
+        </div>
+        <div id="yengeç_terazi" class="hidden">
+          <p>Şefkat ve zarafet birleşir. Duygular ve mantık dengede tutulmalıdır.</p>
+        </div>
+        <div id="yengeç_akrep" class="hidden">
+          <p>Derin duygular ve tutku heyecan katar. Sadakat ve mahremiyet ön plandadır.</p>
+        </div>
+        <div id="yengeç_yay" class="hidden">
+          <p>Ev hayatı ve macera tutkusu çatışabilir. Özgürlük ve güven dengesi şarttır.</p>
+        </div>
+        <div id="yengeç_oğlak" class="hidden">
+          <p>Geleneksel değerler ve kararlılık uyumlu ilerler. Duygusal ve maddi güven ortak amaçtır.</p>
+        </div>
+        <div id="yengeç_kova" class="hidden">
+          <p>Yengeç’in hassasiyeti ve Kova’nın özgür ruhu dengelendikçe ilişki güçlenir.</p>
+        </div>
+        <div id="yengeç_balık" class="hidden">
+          <p>Her iki Su burcu da duygusal derinlik paylaşır. Empati ve şefkat bağları kuvvetlendirir.</p>
+        </div>
+
+        <!-- Aslan Kombinasyonları -->
+<div id="aslan_koç" class="hidden">
+  <p>Aslan’ın cesaretiyle Koç’un inisiyatifi birleşir; enerji ve tutkuları yüksek, fakat sabırsızlık çatışma yaratabilir.</p>
+</div>
+<div id="aslan_boğa" class="hidden">
+  <p>Aslan’ın gösterişli liderliği ve Boğa’nın sağlam sadakati uyumlu bir denge oluşturur; yaratıcı projelerde destekleyicidirler, ancak inatçılık sorun çıkarabilir.</p>
+</div>
+<div id="aslan_ikizler" class="hidden">
+  <p>Aslan’ın sahne ışıklarına duyduğu ihtiyaç, İkizler’in iletişim yeteneğiyle birleşir; eğlenceli ve canlı bir ilişki sunar, fakat tutku ve değişkenlik bazen sürtüşme doğurabilir.</p>
+</div>
+<div id="aslan_yengeç" class="hidden">
+  <p>Aslan’ın lider arzusu, Yengeç’in şefkatli doğasıyla dengelenir; Aslan takdir edilmek isterken, Yengeç güven ve koruma sağlar.</p>
+</div>
+<div id="aslan_aslan" class="hidden">
+  <p>İki Aslan tutkularını ve liderlik özelliklerini paylaşır. Rekabet yüksek ama hayranlıkla dengelenir.</p>
+</div>
+<div id="aslan_başak" class="hidden">
+  <p>Gösteriş ve titizlik çatışabilir. Sabır ve karşılıklı hayranlık uyumu getirir.</p>
+</div>
+<div id="aslan_terazi" class="hidden">
+  <p>Göz alıcı tutku ve zarafet mükemmel bir uyum yakalar. Dengeli iletişim şarttır.</p>
+</div>
+<div id="aslan_akrep" class="hidden">
+  <p>Aslan’ın cesareti ve Akrep’in derin tutkusu ilişkinin ateşini körükler. Sadakat en büyük güçleri.</p>
+</div>
+<div id="aslan_yay" class="hidden">
+  <p>Enerji ve macera aşkı ilişkilerini sürekli canlı tutar. Özgürlük ve liderlik dengede tutulmalı.</p>
+</div>
+<div id="aslan_oğlak" class="hidden">
+  <p>Gösteriş ve disiplin çatışsa da karşılıklı saygıyla başarılı bir ikili oluştururlar.</p>
+</div>
+<div id="aslan_kova" class="hidden">
+  <p>Yaratıcılık ve ilerici vizyon uyumu oluşturur. Bağımsızlıklarına saygı duyduklarında ilişki güçlenir.</p>
+</div>
+<div id="aslan_balık" class="hidden">
+  <p>Aslan’ın liderliği, Balık’ın şefkatiyle dengelenir. Hayaller ve gerçeklik arasında köprü kurarlar.</p>
+</div>
+
+
+        <!-- Başak Kombinasyonları -->
+ <div id="başak_koç" class="hidden">
+  <p>Başak’ın titiz planlaması, Koç’un cesur adımlarıyla dengelenir. Ortak projelerde verim yüksektir, ancak sabırsızlık çatışma yaratabilir.</p>
+</div>
+<div id="başak_boğa" class="hidden">
+  <p>Başak’ın düzeni, Boğa’nın istikrarıyla birleşir. Pratik yaklaşımlarıyla güçlü bir işbirliği oluştururlar.</p>
+</div>
+<div id="başak_ikizler" class="hidden">
+  <p>Başak’ın detaycılığı, İkizler’in esnek iletişimiyle uyum sağlar. Farklı perspektifler zenginlik katar.</p>
+</div>
+<div id="başak_yengeç" class="hidden">
+  <p>Başak’ın mantığı, Yengeç’in şefkatiyle dengelenir. Duygusal destek ve titizlik bir arada yürür.</p>
+</div>
+<div id="başak_aslan" class="hidden">
+  <p>Başak’ın kusursuzluk arzusu, Aslan’ın liderliğiyle etkileyici olur. Karşılıklı saygı başarıya götürür.</p>
+</div>
+<div id="başak_başak" class="hidden">
+  <p>İki Başak düzen ve titizlikte birleşir. Mükemmellik odağı, kritik ruh dengeli hayranlıkla yumuşar.</p>
+</div>
+<div id="başak_terazi" class="hidden">
+  <p>Titizlik ve zarafet uyumlu bir birliktelik sunar. Mantık ve güzellik dengesi korunmalıdır.</p>
+</div>
+<div id="başak_akrep" class="hidden">
+  <p>Analiz ve tutku derin bağ kurar. Gizem ve düzen ortak amaçta buluşur.</p>
+</div>
+<div id="başak_yay" class="hidden">
+  <p>Pratiklik ve özgürlük çatışsa da birbirlerine yeni perspektifler katarlar. Esneklik anahtar olur.</p>
+</div>
+<div id="başak_oğlak" class="hidden">
+  <p>Her iki Oğlak ve Başak verim odaklıdır. Disiplin ve düzen ortak başarı getirir.</p>
+</div>
+<div id="başak_kova" class="hidden">
+  <p>Detaycılık ve yenilikçilik arasında öğrenilecek çok şey var. Ortak hedefler uyum sağlar.</p>
+</div>
+<div id="başak_balık" class="hidden">
+  <p>Analiz ve hayal gücü dengeli birleşir. Duygusal empati ve mantık birlikte yol alır.</p>
+</div>
+
+
+        <!-- Terazi Kombinasyonları -->
+   <div id="terazi_koç" class="hidden">
+  <p>Terazi’nin diplomasi becerisi, Koç’un girişimci ruhuyla ilişkide uyum yaratır. Ortak kararlar dengeli alınmalı, aksi halde çatışma çıkabilir.</p>
+</div>
+<div id="terazi_boğa" class="hidden">
+  <p>Terazi’nin estetik anlayışı, Boğa’nın duyusal konfor arayışıyla mükemmel bir uyum yakalar. Sanat ve huzur dolu bir birliktelik mümkündür.</p>
+</div>
+<div id="terazi_ikizler" class="hidden">
+  <p>Terazi’nin zarafeti, İkizler’in zeki ve neşeli iletişimiyle renklenir. Sosyal etkinlikler ve sohbetler ilişkilerini canlı tutar.</p>
+</div>
+<div id="terazi_yengeç" class="hidden">
+  <p>Terazi’nin adil yaklaşımı, Yengeç’in şefkatiyle dengeli bir ev ortamı yaratır. Duygular ve mantık birlikte beslenir.</p>
+</div>
+<div id="terazi_aslan" class="hidden">
+  <p>Terazi’nin zarafeti, Aslan’ın gösterişli liderliğiyle parıltılı bir birliktelik oluşturur. Karşılıklı övgü ve saygı temelidir.</p>
+</div>
+<div id="terazi_başak" class="hidden">
+  <p>Terazi’nin uyum arayışı, Başak’ın titiz düzeniyle dengelenir. Estetik ve düzen konusunda ortak projeler başarıya ulaşır.</p>
+</div>
+<div id="terazi_terazi" class="hidden">
+  <p>İki Terazi uyum ve zarafet içinde bir araya gelir. İlişkide denge ve sürekli romantizm hakimdir.</p>
+</div>
+<div id="terazi_akrep" class="hidden">
+  <p>Estetik ve tutku birleşir. Denge ve derin duygular güçlü bir bağ oluşturur.</p>
+</div>
+<div id="terazi_yay" class="hidden">
+  <p>Harmoni ve macera coşkusu buluşur. Zihin ve kalp uyumlu keşif sunar.</p>
+</div>
+<div id="terazi_oğlak" class="hidden">
+  <p>Güzellik ve disiplin çatışsa da karşılıklı saygıyla dengeli bir birliktelik kurulur.</p>
+</div>
+<div id="terazi_kova" class="hidden">
+  <p>Diplomasi ve ilerici vizyon uyumu getirir. Sosyal adalet ve entelektüel bağlar kuvvetlidir.</p>
+</div>
+<div id="terazi_balık" class="hidden">
+  <p>Estetik ve sezgi derin bir bağ oluşturur. Ortak empati ve şefkat ilişkileri besler.</p>
+</div>
+
+
+        <!-- Akrep Kombinasyonları -->
+<div id="akrep_koç" class="hidden">
+  <p>Akrep’in derin tutkusu, Koç’un cesur enerjiyle birleşir. Ortak tutkular güçlüdür; ancak kıskançlık ve sabırsızlık çatışma yaratabilir.</p>
+</div>
+<div id="akrep_boğa" class="hidden">
+  <p>Akrep’in kararlılığı, Boğa’nın sadakatiyle uyumlu bir bağ oluşturur. Maddi güven ve duygusal derinlik bir arada yol alır.</p>
+</div>
+<div id="akrep_ikizler" class="hidden">
+  <p>Akrep’in gizemi, İkizler’in meraklı zihniyle canlanır. Sohbetler derinleşir; ancak İkizler’in değişkenliği zaman zaman güven sınar.</p>
+</div>
+<div id="akrep_yengeç" class="hidden">
+  <p>Akrep’in tutkulu derinliği, Yengeç’in şefkatli doğasıyla bütünleşir. Güven ve mahremiyet ilişkide temel taşlardır.</p>
+</div>
+<div id="akrep_aslan" class="hidden">
+  <p>Aslan’ın cesareti ve Akrep’in derin tutkusu ilişkinin ateşini körükler. Sadakat en büyük güçleri.</p>
+</div>
+<div id="akrep_başak" class="hidden">
+  <p>Analiz ve tutku derin bağ kurar. Gizem ve düzen ortak amaçta buluşur.</p>
+</div>
+<div id="akrep_terazi" class="hidden">
+  <p>Estetik ve tutku birleşir. Denge ve derin duygular güçlü bir bağ oluşturur.</p>
+</div>
+<div id="akrep_akrep" class="hidden">
+  <p>Derin tutku ve sadakat yoğun bir ilişki yaratır. Kıskançlık ve güç mücadeleleri dikkatle yönetilmeli.</p>
+</div>
+<div id="akrep_yay" class="hidden">
+  <p>Tutku ve özgürlük arzusu çatışsa da birlikte büyüyecekleri bir dinamik kurarlar.</p>
+</div>
+<div id="akrep_oğlak" class="hidden">
+  <p>Tutku ve disiplin birleşir. Derin duygusal bağlılık ve kararlılık ortak hedefleri destekler.</p>
+</div>
+<div id="akrep_kova" class="hidden">
+  <p>Gizem ve yenilikçilik arasında sürtüşme olabilir. Ortak amaç ve anlayışla köprü kurmalıdırlar.</p>
+</div>
+<div id="akrep_balık" class="hidden">
+  <p>Derin empati ve dönüşüm arzusu birleşir. Duygusal derinlik ve şefkat bağları güçlendirir.</p>
+</div>
+
+
+        <!-- Yay Kombinasyonları -->
+<div id="yay_koç" class="hidden">
+  <p>Yay’ın macera tutkusu, Koç’un atılgan cesaretiyle birleşir. Enerjik ve girişimci bir çift olurlar, ancak sabırsızlık çatışma yaratabilir.</p>
+</div>
+<div id="yay_boğa" class="hidden">
+  <p>Yay’ın özgür ruhu, Boğa’nın sabit fikirli doğasıyla zıtlaşabilir. Boğa, Yay’a sabır öğretirken, Yay da Boğa’ya esneklik getirir.</p>
+</div>
+<div id="yay_ikizler" class="hidden">
+  <p>Yay’ın felsefi bakışı, İkizler’in meraklı zihniyle uyum sağlar. Sohbetler canlıdır, fakat dağınıklık ve kararsızlık sorun yaratabilir.</p>
+</div>
+<div id="yay_yengeç" class="hidden">
+  <p>Yay’ın özgürlük arzusu, Yengeç’in güven ihtiyacıyla çatışabilir. Anlayış ve duygusal destek ile denge sağlanabilir.</p>
+</div>
+<div id="yay_aslan" class="hidden">
+  <p>Yay’ın macera tutkusu ve Aslan’ın enerjisi ilişkiyi dinamik kılar. Özgürlük ve saygı dengede tutulmalı.</p>
+</div>
+<div id="yay_başak" class="hidden">
+  <p>Yay’ın maceraperestliği, Başak’ın titizliğiyle ters düşebilir. Birbirlerinin güçlü yönlerini kabul ettiklerinde harika bir ekip kurarlar.</p>
+</div>
+<div id="yay_terazi" class="hidden">
+  <p>Yay’ın iyimserliği, Terazi’nin uyum arayışıyla dengelenir. Sosyal hayatları renklidir, adil kararlar ilişkide huzur sağlar.</p>
+</div>
+<div id="yay_akrep" class="hidden">
+  <p>Yay’ın özgür ruhu, Akrep’in derin tutkusu arasında gerilim olabilir. Güven ve samimiyet önemlidir, aksi halde kıskançlık çatışma çıkarır.</p>
+</div>
+<div id="yay_yay" class="hidden">
+  <p>Macera ve bilgi arayışı ilişkiyi canlı tutar. Özgürlüğe düşkün, optimist bir ikilidir.</p>
+</div>
+<div id="yay_oğlak" class="hidden">
+  <p>Özgürlük arzusu ve disiplin çatışabilir. Karşılıklı saygı ve hedef ortaklığı esas olmalı.</p>
+</div>
+<div id="yay_kova" class="hidden">
+  <p>Özgür ruh ve ilerici vizyon uyumu getirir. Sosyal keşif ve entelektüel bağlar derindir.</p>
+</div>
+<div id="yay_balık" class="hidden">
+  <p>Macera tutkusu ve duygusal sezgi birleşir. Hayaller ve gerçeklik arasında köprü kurarlar.</p>
+</div>
+
+
+        <!-- Oğlak Kombinasyonları -->
+<div id="oğlak_koç" class="hidden">
+  <p>Oğlak’ın disiplinli yapısı, Koç’un atılgan ruhuyla çatışabilir; ancak ortak hedeflerde buluştuklarında güçlü bir ekip oluştururlar.</p>
+</div>
+<div id="oğlak_boğa" class="hidden">
+  <p>Her iki Toprak burcu da sadakat ve istikrarı önemser. Uzun vadede güvenli ve üretken bir birliktelik kurarlar.</p>
+</div>
+<div id="oğlak_ikizler" class="hidden">
+  <p>Oğlak’ın ciddiyeti, İkizler’in hareketli zihniyle zıtlık yaratır. İletişimde esnek kalmaları ilişkiyi besler.</p>
+</div>
+<div id="oğlak_yengeç" class="hidden">
+  <p>Oğlak’ın sorumluluk anlayışı, Yengeç’in şefkatiyle dengelenir. Aile ve kariyer ortak öncelikler olur.</p>
+</div>
+<div id="oğlak_aslan" class="hidden">
+  <p>Oğlak’ın disiplinli yaklaşımı, Aslan’ın liderlik tutkusu ile başarı getirir; ancak ego çatışmalarına dikkat edilmeli.</p>
+</div>
+<div id="oğlak_başak" class="hidden">
+  <p>Oğlak’ın düzeni, Başak’ın titizliğiyle birleşir. Mükemmelliğe odaklanan projelerde yüksek uyum sağlarlar.</p>
+</div>
+<div id="oğlak_terazi" class="hidden">
+  <p>Oğlak’ın ciddiyeti, Terazi’nin zarafetiyle dengelenir. Ortak kararlar sabır ve anlayış gerektirir.</p>
+</div>
+<div id="oğlak_akrep" class="hidden">
+  <p>Oğlak’ın kararlılığı, Akrep’in tutkusu ile güçlü bir bağ oluşturur. Sadakat ve strateji ortak güçleridir.</p>
+</div>
+<div id="oğlak_yay" class="hidden">
+  <p>Özgürlük arzusu ve disiplin çatışabilir; karşılıklı saygı ve esneklik ilişkiyi devam ettirir.</p>
+</div>
+<div id="oğlak_oğlak" class="hidden">
+  <p>Disiplin ve kararlılık odağında birleşirler. Uzun vadeli hedeflerde güvenilir bir ekip oluştururlar.</p>
+</div>
+<div id="oğlak_kova" class="hidden">
+  <p>Geleneksel disiplin ve ilerici yenilikçilik çatışır. Sınırları genişletmek için anlayış şarttır.</p>
+</div>
+<div id="oğlak_balık" class="hidden">
+  <p>Disiplin ve duygu derinliği dengelendiğinde güçlü bir bağ oluşur. Empati ve kararlılık uyumu sağlar.</p>
+</div>
+
+
+        <!-- Kova Kombinasyonları -->
+<div id="kova_koç" class="hidden">
+  <p>Kova’nın özgür fikirleri, Koç’un cesur adımlarıyla ilham verici bir birliktelik oluşturur. Ortak projelerde yaratıcılık yüksektir; sabırsızlık çatışma yaratabilir.</p>
+</div>
+<div id="kova_boğa" class="hidden">
+  <p>Kova’nın yenilikçi vizyonu, Boğa’nın istikrarlı yapısıyla dengelenir. Farklı bakış açıları zenginlik katar, ancak esneklik gerekebilir.</p>
+</div>
+<div id="kova_ikizler" class="hidden">
+  <p>Kova’nın entelektüel merakı, İkizler’in canlı iletişimiyle birleşir. Sohbetler keyifli, fikir alışverişi dinamik olur.</p>
+</div>
+<div id="kova_yengeç" class="hidden">
+  <p>Kova’nın bağımsız ruhu, Yengeç’in şefkatine meydan okuyabilir. Ortak anlayış ve duygusal güven dengesi sağlar.</p>
+</div>
+<div id="kova_aslan" class="hidden">
+  <p>Kova’nın özgünlüğü, Aslan’ın liderlik tutkusu ile parıltılı bir birliktelik sunar. Karşılıklı saygı ve övgü önemli.</p>
+</div>
+<div id="kova_başak" class="hidden">
+  <p>Kova’nın vizyonu, Başak’ın titiz düzeniyle birleşir. Ortak hedeflerde yenilikçi ve pratik çözümler geliştirirler.</p>
+</div>
+<div id="kova_terazi" class="hidden">
+  <p>Kova’nın adil ve ilerici fikirleri, Terazi’nin zarafetiyle uyum sağlar. Sosyal projelerde güçlü bir ekip olurlar.</p>
+</div>
+<div id="kova_akrep" class="hidden">
+  <p>Kova’nın entelektüel derinliği, Akrep’in tutkusuyla birleşir. Gizemli sohbetler ve stratejik ortaklık güçlüdür.</p>
+</div>
+<div id="kova_yay" class="hidden">
+  <p>İki özgür ruh: Kova’nın yenilikçiliği ve Yay’ın macera tutkusu bir arada öğrenme ve keşif dolu bir ilişki yaratır.</p>
+</div>
+<div id="kova_oğlak" class="hidden">
+  <p>Kova’nın özgür fikirleri, Oğlak’ın disiplinli yaklaşımıyla dengelenir. Yenilikçi hedeflerde kararlılık ve yapı sağlarlar.</p>
+</div>
+<div id="kova_kova" class="hidden">
+  <p>İki Kova entelektüel keşiflerde birleşir. Bağımsızlık ve yenilikçilik bağları güçlendirir.</p>
+</div>
+<div id="kova_balık" class="hidden">
+  <p>Özgürlük tutkusu ve duygusal sezgi birlikte öğrenmeyi besler. Empati ve vizyon ortak hedefte buluşur.</p>
+</div>
+
+
+        <!-- Balık Kombinasyonları -->
+<div id="balık_koç" class="hidden">
+  <p>Balık’ın sezgisel derinliği, Koç’un enerjik kararlılığıyla tamamlanır. Koç, Balık’ı harekete geçirir; Balık ise Koç’a şefkat ve yaratıcılık katar.</p>
+</div>
+<div id="balık_boğa" class="hidden">
+  <p>Balık’ın hayal gücü, Boğa’nın sağlam sadakatiyle evde huzur ve konfor yaratır. Duygusal destek ve pratiklik uyum içindedir.</p>
+</div>
+<div id="balık_ikizler" class="hidden">
+  <p>Balık’ın duygusal derinliği, İkizler’in canlı sohbetleriyle canlanır. Zıtlıklar uyum getirse de, zaman zaman farklı iletişim stillerini dengelemeleri gerekir.</p>
+</div>
+<div id="balık_yengeç" class="hidden">
+  <p>İki su burcu arasında güçlü empati ve şefkat bağı vardır. Güven ve duygusal stabiliteye odaklanırlar, iniş çıkışları birlikte aşabilirler.</p>
+</div>
+<div id="balık_aslan" class="hidden">
+  <p>Balık’ın şefkati, Aslan’ın ihtişamlı liderliğiyle birleşir. Aslan takdir edilirken, Balık da hayallerine alan bulur; dengeli övgü ve destek gerekir.</p>
+</div>
+<div id="balık_başak" class="hidden">
+  <p>Balık’ın sezgisel empatisi, Başak’ın titizliğiyle dengelenir. Düzen ve hayal gücü bir arada yaratıcı projelere dönüşebilir.</p>
+</div>
+<div id="balık_terazi" class="hidden">
+  <p>Balık’ın romantik doğası, Terazi’nin zarafetiyle uyum sağlar. Sanat ve estetik paylaşımları ilişkiyi besler.</p>
+</div>
+<div id="balık_akrep" class="hidden">
+  <p>Harika bir uyum vardır. Tutkulu ve son derece mutlu bir şekilde ilişki yaşayıp çevrelerinde ki insanlar için örnek olurlar.</p>
+</div>
+<div id="balık_yay" class="hidden">
+  <p>Balık’ın rüya gibi bakışı, Yay’ın macera tutkusu ile birleşir. Hayal ve özgürlük arasında köprü kurmayı öğrenmeleri gerekebilir.</p>
+</div>
+<div id="balık_oğlak" class="hidden">
+  <p>Balık’ın empatisi, Oğlak’ın disiplinli yaklaşımıyla ayarlanır. Kariyer ve duygusal güven ortak hedefleri destekler.</p>
+</div>
+<div id="balık_kova" class="hidden">
+  <p>Balık’ın sezgisel derinliği, Kova’nın yenilikçi vizyonuyla beslenir. Farklı dünyalarda buluşarak yaratıcı çözümler üretirler.</p>
+</div>
+<div id="balık_balık" class="hidden">
+  <p>İki Balık arasında büyülü bir uyum vardır. Ortak hayaller ve sezgisel bağ, derin duygusal bir birliktelik sunar.</p>
+</div>
+
+
+      </section>
+    </div>
+  </section>
+</div>

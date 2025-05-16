@@ -1,0 +1,25 @@
+<!-- src/app/user/blog-detail/blog-detail.component.html -->
+<div class="astrology-list">
+  <!-- Async ile blog verisi geldiyse b olarak ata -->
+  <ng-container *ngIf="blog$ | async as b; else loading">
+    <h2 class="neon-text">🪐 Blog Detayı</h2>
+
+    <div class="list-card detail-card">
+      <h1 class="neon-text">{{ b.title }}</h1>
+      <img
+        [src]="b.imageUrl || 'assets/default.jpg'"
+        class="detail-img"
+        alt="{{ b.title }}"
+      />
+      <p>{{ b.content }}</p>
+      <small>Yayınlanma: {{ b.createdAt | date:'longDate' }}</small>
+    </div>
+  </ng-container>
+
+  <!-- Veri gelene kadar gösterilecek içerik -->
+  <ng-template #loading>
+    <div class="loading">
+      <p>Yükleniyor…</p>
+    </div>
+  </ng-template>
+</div>
