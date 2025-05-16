@@ -9,7 +9,7 @@ export const environment = {
     appId: "1:1092610452713:web:7c859d5f667bf2a4aed478"
   },
   openai: {
-    apiKey: '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',
+    apiKey: '',
     model: 'gpt-4o-mini',
     apiUrl: 'https://api.openai.com/v1/chat/completions'
   },
